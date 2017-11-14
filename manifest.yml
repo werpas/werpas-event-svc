@@ -1,0 +1,11 @@
+---
+applications:
+- name: werpas-event-svc
+  host: werpas-event-svc
+  memory: 64M
+  instances: 1
+  disk_quota: 32M
+  command: /app/bin/werpas-event-svc
+  buildpack : https://github.com/cloudfoundry/go-buildpack.git
+  env:
+    MONGODB_CONNECTION_STRING: mongodb://admin:admin@ds249325.mlab.com:49325/werpas
