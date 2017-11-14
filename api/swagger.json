@@ -9,6 +9,10 @@
     {
       "name" : "diagnostic",
       "description": "For diagnostic purposes"
+    },
+    {
+      "name" : "geolocation",
+      "description": "For geolocation purposes"
     }
   ],
   "basePath": "/api/v1",
@@ -36,6 +40,85 @@
             "description": "Successful response",
             "schema": {
               "$ref": "#/definitions/ProcessInfo"
+            }
+          }
+        }
+      }
+    },
+    "/near": {
+      "get": {
+        "tags" : [ "geolocation" ],
+        "summary": "Gets near events.",
+        "description": "Gets near events.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "long",
+            "in": "query",
+            "required": true,
+            "description": "longitude",
+            "type": "float",
+            "minimum": -180,
+            "maximum": 180
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "description": "latitude",
+            "type": "float",
+            "minimum": -90,
+            "maximum": 90
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort Parameter",
+            "type": "string",
+            "enum": [
+              "eventtype","eventname","eventdesc","datetime","distance"
+            ],
+            "default": "distance"
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "required": false,
+            "description": "radius in meters",
+            "type": "number",
+            "default": 1000
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "description": "Sort Order",
+            "type": "string",
+            "enum": [
+              "asc", "desc"
+            ],
+            "default": "asc"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Sort Order",
+            "type": "number",
+            "default": 100
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Endpoint Not Found",
+            "schema": {
+              "type": "string"
             }
           }
         }

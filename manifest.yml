@@ -9,3 +9,5 @@ applications:
   buildpack : https://github.com/cloudfoundry/go-buildpack.git
   env:
     MONGODB_CONNECTION_STRING: mongodb://admin:admin@ds249325.mlab.com:49325/werpas
+    MONGODB_DB: werpas
+    MONGODB_COLLECTION: event

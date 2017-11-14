@@ -6,9 +6,9 @@ import (
 
 var routes = ConfiguredRoutes{
 	Route{
-		Name:        "Sample",
+		Name:        "GetNearEvents",
 		Method:      "GET",
-		Pattern:     `/near/{long:[-+]?([0-9]*\.[0-9]+|[0-9]+)},{lat:[-+]?([0-9]*\.[0-9]+|[0-9]+)}},{radius:[0-9]+}`,
+		Pattern:     "/near",
 		HandlerFunc: HandleGetNear},
 }
 
